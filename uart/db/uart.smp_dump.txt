@@ -1,0 +1,12 @@
+
+State Machine - |uart|staten
+Name staten.00 staten.nope staten.trans 
+staten.00 0 0 0 
+staten.trans 1 0 1 
+staten.nope 1 1 0 
+
+State Machine - |uart|state
+Name state.00 state.nope state.trans 
+state.00 0 0 0 
+state.trans 1 0 1 
+state.nope 1 1 0 

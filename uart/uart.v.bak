@@ -1,0 +1,13 @@
+module uart(
+	
+
+	);
+	
+	boudclock();
+	UART_transmitter transmitter();
+	UART_reciever reciever();
+	
+	
+
+	
+endmodule
