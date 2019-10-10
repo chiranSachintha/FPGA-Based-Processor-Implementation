@@ -1,0 +1,113 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'processor:pro|ControlUnit:cu|operation[0]'
+Slack : -11.767
+TNS   : -169.444
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -7.204
+TNS   : -1944.679
+
+Type  : Slow 1200mV 85C Model Setup 'processor:pro|Register:IR|d[0]'
+Slack : -1.235
+TNS   : -3.786
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : -3.595
+TNS   : -4.900
+
+Type  : Slow 1200mV 85C Model Hold 'processor:pro|ControlUnit:cu|operation[0]'
+Slack : -1.280
+TNS   : -14.503
+
+Type  : Slow 1200mV 85C Model Hold 'processor:pro|Register:IR|d[0]'
+Slack : -0.893
+TNS   : -3.593
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -1009.926
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'processor:pro|ControlUnit:cu|operation[0]'
+Slack : 0.439
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'processor:pro|Register:IR|d[0]'
+Slack : 0.456
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'processor:pro|ControlUnit:cu|operation[0]'
+Slack : -10.800
+TNS   : -155.431
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -6.502
+TNS   : -1759.456
+
+Type  : Slow 1200mV 0C Model Setup 'processor:pro|Register:IR|d[0]'
+Slack : -1.176
+TNS   : -3.607
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -3.316
+TNS   : -4.743
+
+Type  : Slow 1200mV 0C Model Hold 'processor:pro|ControlUnit:cu|operation[0]'
+Slack : -1.230
+TNS   : -14.208
+
+Type  : Slow 1200mV 0C Model Hold 'processor:pro|Register:IR|d[0]'
+Slack : -0.852
+TNS   : -3.471
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -998.618
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'processor:pro|ControlUnit:cu|operation[0]'
+Slack : 0.394
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'processor:pro|Register:IR|d[0]'
+Slack : 0.459
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'processor:pro|ControlUnit:cu|operation[0]'
+Slack : -5.553
+TNS   : -79.524
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -3.146
+TNS   : -959.481
+
+Type  : Fast 1200mV 0C Model Setup 'processor:pro|Register:IR|d[0]'
+Slack : -0.296
+TNS   : -0.376
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : -1.950
+TNS   : -4.030
+
+Type  : Fast 1200mV 0C Model Hold 'processor:pro|ControlUnit:cu|operation[0]'
+Slack : -0.811
+TNS   : -8.881
+
+Type  : Fast 1200mV 0C Model Hold 'processor:pro|Register:IR|d[0]'
+Slack : -0.350
+TNS   : -1.343
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -879.104
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'processor:pro|ControlUnit:cu|operation[0]'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'processor:pro|Register:IR|d[0]'
+Slack : 0.405
+TNS   : 0.000
+
+------------------------------------------------------------

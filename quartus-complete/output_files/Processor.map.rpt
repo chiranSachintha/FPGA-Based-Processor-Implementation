@@ -1,0 +1,1228 @@
+Analysis & Synthesis report for Processor
+Thu Jul 19 18:10:21 2018
+Quartus II Version 10.0 Build 218 06/27/2010 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |testmp|staten
+ 10. State Machine - |testmp|state
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Registers Packed Into Inferred Megafunctions
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for DMemory:Dram|altsyncram:memory_rtl_0|altsyncram_m3e1:auto_generated
+ 19. Source assignments for Memory:Pram|altsyncram:memory_rtl_1|altsyncram_qs71:auto_generated
+ 20. Parameter Settings for User Entity Instance: BaudGen:baud
+ 21. Parameter Settings for User Entity Instance: Transmitter:tr|BaudGen:localclockOS
+ 22. Parameter Settings for User Entity Instance: Receiver:re|BaudGen:localclockOS
+ 23. Parameter Settings for Inferred Entity Instance: DMemory:Dram|altsyncram:memory_rtl_0
+ 24. Parameter Settings for Inferred Entity Instance: Memory:Pram|altsyncram:memory_rtl_1
+ 25. altsyncram Parameter Settings by Entity Instance
+ 26. Port Connectivity Checks: "Transmitter:tr"
+ 27. Port Connectivity Checks: "BaudGen:baud"
+ 28. Port Connectivity Checks: "processor:pro|Decoder:decoder"
+ 29. Port Connectivity Checks: "processor:pro|SRegister:PC"
+ 30. Port Connectivity Checks: "processor:pro|SRegister:AC"
+ 31. Port Connectivity Checks: "processor:pro|Register:IR"
+ 32. Port Connectivity Checks: "processor:pro|Register:AR"
+ 33. Port Connectivity Checks: "processor:pro|Register:R5"
+ 34. Port Connectivity Checks: "processor:pro|Register:R4"
+ 35. Port Connectivity Checks: "processor:pro|Register:R3"
+ 36. Port Connectivity Checks: "processor:pro|Register:R2"
+ 37. Port Connectivity Checks: "processor:pro|Register:R1"
+ 38. Port Connectivity Checks: "Memory:Pram"
+ 39. Analysis & Synthesis Messages
+ 40. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Jul 19 18:10:21 2018    ;
+; Quartus II Version                 ; 10.0 Build 218 06/27/2010 SJ Web Edition ;
+; Revision Name                      ; Processor                                ;
+; Top-level Entity Name              ; testmp                                   ;
+; Family                             ; Cyclone IV E                             ;
+; Total logic elements               ; 637                                      ;
+;     Total combinational functions  ; 549                                      ;
+;     Dedicated logic registers      ; 245                                      ;
+; Total registers                    ; 245                                      ;
+; Total pins                         ; 13                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 526,336                                  ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; testmp             ; Processor          ;
+; Family name                                                                ; Cyclone IV E       ; Stratix II         ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                         ;
++-------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path          ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                             ;
++-------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+; Transmitter.v                             ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/Transmitter.v                             ;
+; testmp.v                                  ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/testmp.v                                  ;
+; SRegister.v                               ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/SRegister.v                               ;
+; Register.v                                ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/Register.v                                ;
+; Receiver.v                                ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/Receiver.v                                ;
+; processor.v                               ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/processor.v                               ;
+; Mux.v                                     ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/Mux.v                                     ;
+; Memory.v                                  ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/Memory.v                                  ;
+; DMemory.v                                 ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/DMemory.v                                 ;
+; Decoder.v                                 ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/Decoder.v                                 ;
+; ControlUnit.v                             ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/ControlUnit.v                             ;
+; BaudGen.v                                 ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/BaudGen.v                                 ;
+; ALU.v                                     ; yes             ; User Verilog HDL File                                 ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/ALU.v                                     ;
+; altsyncram.tdf                            ; yes             ; Megafunction                                          ; f:/altera/quartus/libraries/megafunctions/altsyncram.tdf                                                 ;
+; db/altsyncram_m3e1.tdf                    ; yes             ; Auto-Generated Megafunction                           ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/db/altsyncram_m3e1.tdf                    ;
+; db/decode_rsa.tdf                         ; yes             ; Auto-Generated Megafunction                           ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/db/decode_rsa.tdf                         ;
+; db/mux_bnb.tdf                            ; yes             ; Auto-Generated Megafunction                           ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/db/mux_bnb.tdf                            ;
+; db/altsyncram_qs71.tdf                    ; yes             ; Auto-Generated Megafunction                           ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/db/altsyncram_qs71.tdf                    ;
+; db/Processor.ram0_Memory_a0c6519c.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/db/Processor.ram0_Memory_a0c6519c.hdl.mif ;
++-------------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 637       ;
+;                                             ;           ;
+; Total combinational functions               ; 549       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 299       ;
+;     -- 3 input functions                    ; 147       ;
+;     -- <=2 input functions                  ; 103       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 453       ;
+;     -- arithmetic mode                      ; 96        ;
+;                                             ;           ;
+; Total registers                             ; 245       ;
+;     -- Dedicated logic registers            ; 245       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 13        ;
+; Total memory bits                           ; 526336    ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 289       ;
+; Total fan-out                               ; 3796      ;
+; Average fan-out                             ; 4.26      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                ;
++-------------------------------------------+-------------------+--------------+-------------+------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                            ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------+--------------+
+; |testmp                                   ; 549 (101)         ; 245 (40)     ; 526336      ; 0          ; 0            ; 0       ; 0         ; 13   ; 0            ; |testmp                                                                                        ;              ;
+;    |DMemory:Dram|                         ; 57 (0)            ; 3 (0)        ; 524288      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|DMemory:Dram                                                                           ;              ;
+;       |altsyncram:memory_rtl_0|           ; 57 (0)            ; 3 (0)        ; 524288      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|DMemory:Dram|altsyncram:memory_rtl_0                                                   ;              ;
+;          |altsyncram_m3e1:auto_generated| ; 57 (0)            ; 3 (3)        ; 524288      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|DMemory:Dram|altsyncram:memory_rtl_0|altsyncram_m3e1:auto_generated                    ;              ;
+;             |decode_rsa:decode2|          ; 9 (9)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|DMemory:Dram|altsyncram:memory_rtl_0|altsyncram_m3e1:auto_generated|decode_rsa:decode2 ;              ;
+;             |mux_bnb:mux3|                ; 48 (48)           ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|DMemory:Dram|altsyncram:memory_rtl_0|altsyncram_m3e1:auto_generated|mux_bnb:mux3       ;              ;
+;    |Memory:Pram|                          ; 0 (0)             ; 0 (0)        ; 2048        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|Memory:Pram                                                                            ;              ;
+;       |altsyncram:memory_rtl_1|           ; 0 (0)             ; 0 (0)        ; 2048        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|Memory:Pram|altsyncram:memory_rtl_1                                                    ;              ;
+;          |altsyncram_qs71:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|Memory:Pram|altsyncram:memory_rtl_1|altsyncram_qs71:auto_generated                     ;              ;
+;    |Receiver:re|                          ; 44 (29)           ; 26 (16)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|Receiver:re                                                                            ;              ;
+;       |BaudGen:localclockOS|              ; 15 (15)           ; 10 (10)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|Receiver:re|BaudGen:localclockOS                                                       ;              ;
+;    |Transmitter:tr|                       ; 32 (17)           ; 24 (14)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|Transmitter:tr                                                                         ;              ;
+;       |BaudGen:localclockOS|              ; 15 (15)           ; 10 (10)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|Transmitter:tr|BaudGen:localclockOS                                                    ;              ;
+;    |processor:pro|                        ; 315 (0)           ; 152 (0)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro                                                                          ;              ;
+;       |ALU:alu|                           ; 121 (121)         ; 1 (1)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|ALU:alu                                                                  ;              ;
+;       |ControlUnit:cu|                    ; 67 (67)           ; 23 (23)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|ControlUnit:cu                                                           ;              ;
+;       |Decoder:decoder|                   ; 9 (9)             ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|Decoder:decoder                                                          ;              ;
+;       |Mux:mux|                           ; 94 (94)           ; 0 (0)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|Mux:mux                                                                  ;              ;
+;       |Register:AR|                       ; 0 (0)             ; 16 (16)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|Register:AR                                                              ;              ;
+;       |Register:IR|                       ; 0 (0)             ; 8 (8)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|Register:IR                                                              ;              ;
+;       |Register:R1|                       ; 0 (0)             ; 16 (16)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|Register:R1                                                              ;              ;
+;       |Register:R2|                       ; 0 (0)             ; 16 (16)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|Register:R2                                                              ;              ;
+;       |Register:R3|                       ; 0 (0)             ; 16 (16)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|Register:R3                                                              ;              ;
+;       |Register:R4|                       ; 0 (0)             ; 16 (16)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|Register:R4                                                              ;              ;
+;       |Register:R5|                       ; 0 (0)             ; 16 (16)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|Register:R5                                                              ;              ;
+;       |SRegister:AC|                      ; 16 (16)           ; 16 (16)      ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|SRegister:AC                                                             ;              ;
+;       |SRegister:PC|                      ; 8 (8)             ; 8 (8)        ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; |testmp|processor:pro|SRegister:PC                                                             ;              ;
++-------------------------------------------+-------------------+--------------+-------------+------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                          ;
++--------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-------------------------------------------+
+; Name                                                                           ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF                                       ;
++--------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-------------------------------------------+
+; DMemory:Dram|altsyncram:memory_rtl_0|altsyncram_m3e1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 65536        ; 8            ; 65536        ; 8            ; 524288 ; None                                      ;
+; Memory:Pram|altsyncram:memory_rtl_1|altsyncram_qs71:auto_generated|ALTSYNCRAM  ; AUTO ; ROM              ; 256          ; 8            ; --           ; --           ; 2048   ; db/Processor.ram0_Memory_a0c6519c.hdl.mif ;
++--------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-------------------------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |testmp|staten                                      ;
++--------------+-------------+--------------+-------------+-----------+
+; Name         ; staten.nope ; staten.trans ; staten.pros ; staten.00 ;
++--------------+-------------+--------------+-------------+-----------+
+; staten.00    ; 0           ; 0            ; 0           ; 0         ;
+; staten.pros  ; 0           ; 0            ; 1           ; 1         ;
+; staten.trans ; 0           ; 1            ; 0           ; 1         ;
+; staten.nope  ; 1           ; 0            ; 0           ; 1         ;
++--------------+-------------+--------------+-------------+-----------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------+
+; State Machine - |testmp|state                                  ;
++-------------+------------+-------------+------------+----------+
+; Name        ; state.nope ; state.trans ; state.pros ; state.00 ;
++-------------+------------+-------------+------------+----------+
+; state.00    ; 0          ; 0           ; 0          ; 0        ;
+; state.pros  ; 0          ; 0           ; 1          ; 1        ;
+; state.trans ; 0          ; 1           ; 0          ; 1        ;
+; state.nope  ; 1          ; 0           ; 0          ; 1        ;
++-------------+------------+-------------+------------+----------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                              ;
++-----------------------------------------------------+-----------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal               ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------------------+------------------------+
+; processor:pro|ControlUnit:cu|mins[4]                ; processor:pro|ControlUnit:cu|Mux2 ; yes                    ;
+; processor:pro|ControlUnit:cu|mins[3]                ; processor:pro|ControlUnit:cu|Mux2 ; yes                    ;
+; processor:pro|ControlUnit:cu|mins[2]                ; processor:pro|ControlUnit:cu|Mux2 ; yes                    ;
+; processor:pro|ControlUnit:cu|mins[0]                ; processor:pro|ControlUnit:cu|Mux2 ; yes                    ;
+; processor:pro|ControlUnit:cu|mins[1]                ; processor:pro|ControlUnit:cu|Mux2 ; yes                    ;
+; processor:pro|ALU:alu|data[15]                      ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[14]                      ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[13]                      ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[0]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[1]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[2]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[3]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[4]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[5]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[6]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[7]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[8]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[9]                       ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[10]                      ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[11]                      ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; processor:pro|ALU:alu|data[12]                      ; processor:pro|ALU:alu|Mux16       ; yes                    ;
+; Number of user-specified and inferred latches = 21  ;                                   ;                        ;
++-----------------------------------------------------+-----------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; Memory:Pram|d[8..15]                   ; Stuck at GND due to stuck port data_in ;
+; DMemory:Dram|d[8..15]                  ; Stuck at GND due to stuck port data_in ;
+; processor:pro|Register:IR|d[8..15]     ; Stuck at GND due to stuck port data_in ;
+; readu                                  ; Merged with writeu                     ;
+; state.00                               ; Lost fanout                            ;
+; state.pros                             ; Lost fanout                            ;
+; state.trans                            ; Lost fanout                            ;
+; state.nope                             ; Lost fanout                            ;
+; staten~5                               ; Lost fanout                            ;
+; staten~6                               ; Lost fanout                            ;
+; state~2                                ; Lost fanout                            ;
+; state~3                                ; Lost fanout                            ;
+; processor:pro|SRegister:PC|d[8..15]    ; Lost fanout                            ;
+; Total Number of Removed Registers = 41 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                            ;
++-------------------+---------------------------+----------------------------------------+
+; Register name     ; Reason for Removal        ; Registers Removed due to This Register ;
++-------------------+---------------------------+----------------------------------------+
+; Memory:Pram|d[8]  ; Stuck at GND              ; processor:pro|Register:IR|d[8]         ;
+;                   ; due to stuck port data_in ;                                        ;
+; Memory:Pram|d[9]  ; Stuck at GND              ; processor:pro|Register:IR|d[9]         ;
+;                   ; due to stuck port data_in ;                                        ;
+; Memory:Pram|d[10] ; Stuck at GND              ; processor:pro|Register:IR|d[10]        ;
+;                   ; due to stuck port data_in ;                                        ;
+; Memory:Pram|d[11] ; Stuck at GND              ; processor:pro|Register:IR|d[11]        ;
+;                   ; due to stuck port data_in ;                                        ;
+; Memory:Pram|d[12] ; Stuck at GND              ; processor:pro|Register:IR|d[12]        ;
+;                   ; due to stuck port data_in ;                                        ;
+; Memory:Pram|d[13] ; Stuck at GND              ; processor:pro|Register:IR|d[13]        ;
+;                   ; due to stuck port data_in ;                                        ;
+; Memory:Pram|d[14] ; Stuck at GND              ; processor:pro|Register:IR|d[14]        ;
+;                   ; due to stuck port data_in ;                                        ;
+; Memory:Pram|d[15] ; Stuck at GND              ; processor:pro|Register:IR|d[15]        ;
+;                   ; due to stuck port data_in ;                                        ;
++-------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 245   ;
+; Number of registers using Synchronous Clear  ; 31    ;
+; Number of registers using Synchronous Load   ; 47    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 163   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; Transmitter:tr|dataBit                 ; 2       ;
+; writeu                                 ; 3       ;
+; Receiver:re|filter[1]                  ; 3       ;
+; Receiver:re|filter[0]                  ; 3       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions     ;
++-------------------+-----------------------+------+
+; Register Name     ; Megafunction          ; Type ;
++-------------------+-----------------------+------+
+; DMemory:Dram|d[0] ; DMemory:Dram|memory~0 ; RAM  ;
+; DMemory:Dram|d[1] ; DMemory:Dram|memory~0 ; RAM  ;
+; DMemory:Dram|d[2] ; DMemory:Dram|memory~0 ; RAM  ;
+; DMemory:Dram|d[3] ; DMemory:Dram|memory~0 ; RAM  ;
+; DMemory:Dram|d[4] ; DMemory:Dram|memory~0 ; RAM  ;
+; DMemory:Dram|d[5] ; DMemory:Dram|memory~0 ; RAM  ;
+; DMemory:Dram|d[6] ; DMemory:Dram|memory~0 ; RAM  ;
+; DMemory:Dram|d[7] ; DMemory:Dram|memory~0 ; RAM  ;
+; Memory:Pram|d[0]  ; Memory:Pram|memory~0  ; RAM  ;
+; Memory:Pram|d[1]  ; Memory:Pram|memory~0  ; RAM  ;
+; Memory:Pram|d[2]  ; Memory:Pram|memory~0  ; RAM  ;
+; Memory:Pram|d[3]  ; Memory:Pram|memory~0  ; RAM  ;
+; Memory:Pram|d[4]  ; Memory:Pram|memory~0  ; RAM  ;
+; Memory:Pram|d[5]  ; Memory:Pram|memory~0  ; RAM  ;
+; Memory:Pram|d[6]  ; Memory:Pram|memory~0  ; RAM  ;
+; Memory:Pram|d[7]  ; Memory:Pram|memory~0  ; RAM  ;
++-------------------+-----------------------+------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |testmp|processor:pro|ControlUnit:cu|M_select[2]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |testmp|Transmitter:tr|state[1]                         ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |testmp|processor:pro|SRegister:AC|d[14]                ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |testmp|processor:pro|SRegister:PC|d[1]                 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |testmp|processor:pro|ControlUnit:cu|D_select[0]        ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |testmp|countn[15]                                      ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |testmp|Transmitter:tr|BaudGen:localclockOS|accumulator ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |testmp|Receiver:re|BaudGen:localclockOS|accumulator    ;
+; 5:1                ; 14 bits   ; 42 LEs        ; 42 LEs               ; 0 LEs                  ; No         ; |testmp|processor:pro|ALU:alu|Mux11                     ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 18 LEs               ; 2 LEs                  ; No         ; |testmp|processor:pro|ControlUnit:cu|Mux3               ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; No         ; |testmp|processor:pro|Mux:mux|Mux0                      ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 48 LEs               ; 32 LEs                 ; No         ; |testmp|processor:pro|Mux:mux|Mux8                      ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |testmp|Selector18                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Source assignments for DMemory:Dram|altsyncram:memory_rtl_0|altsyncram_m3e1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------+
+; Assignment                      ; Value              ; From ; To                           ;
++---------------------------------+--------------------+------+------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                            ;
++---------------------------------+--------------------+------+------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Source assignments for Memory:Pram|altsyncram:memory_rtl_1|altsyncram_qs71:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------+
+; Assignment                      ; Value              ; From ; To                          ;
++---------------------------------+--------------------+------+-----------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                           ;
++---------------------------------+--------------------+------+-----------------------------+
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BaudGen:baud ;
++------------------------+----------+-----------------------+
+; Parameter Name         ; Value    ; Type                  ;
++------------------------+----------+-----------------------+
+; clockfreq              ; 50000000 ; Signed Integer        ;
+; boudrate               ; 115200   ; Signed Integer        ;
+; overSamplingMultiplier ; 1        ; Signed Integer        ;
+; multiplier             ; 434      ; Signed Integer        ;
++------------------------+----------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Transmitter:tr|BaudGen:localclockOS ;
++------------------------+----------+----------------------------------------------+
+; Parameter Name         ; Value    ; Type                                         ;
++------------------------+----------+----------------------------------------------+
+; clockfreq              ; 50000000 ; Signed Integer                               ;
+; boudrate               ; 115200   ; Signed Integer                               ;
+; overSamplingMultiplier ; 1        ; Signed Integer                               ;
+; multiplier             ; 434      ; Signed Integer                               ;
++------------------------+----------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Receiver:re|BaudGen:localclockOS ;
++------------------------+----------+-------------------------------------------+
+; Parameter Name         ; Value    ; Type                                      ;
++------------------------+----------+-------------------------------------------+
+; clockfreq              ; 50000000 ; Signed Integer                            ;
+; boudrate               ; 115200   ; Signed Integer                            ;
+; overSamplingMultiplier ; 1        ; Signed Integer                            ;
+; multiplier             ; 434      ; Signed Integer                            ;
++------------------------+----------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DMemory:Dram|altsyncram:memory_rtl_0 ;
++------------------------------------+----------------------+---------------------------+
+; Parameter Name                     ; Value                ; Type                      ;
++------------------------------------+----------------------+---------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                   ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                   ;
+; WIDTH_A                            ; 8                    ; Untyped                   ;
+; WIDTHAD_A                          ; 16                   ; Untyped                   ;
+; NUMWORDS_A                         ; 65536                ; Untyped                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                   ;
+; WIDTH_B                            ; 8                    ; Untyped                   ;
+; WIDTHAD_B                          ; 16                   ; Untyped                   ;
+; NUMWORDS_B                         ; 65536                ; Untyped                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                   ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                   ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                   ;
+; INIT_FILE                          ; UNUSED               ; Untyped                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                   ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                   ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                   ;
+; CBXI_PARAMETER                     ; altsyncram_m3e1      ; Untyped                   ;
++------------------------------------+----------------------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Memory:Pram|altsyncram:memory_rtl_1            ;
++------------------------------------+-------------------------------------------+----------------+
+; Parameter Name                     ; Value                                     ; Type           ;
++------------------------------------+-------------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                         ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                        ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                       ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                        ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                       ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                         ; Untyped        ;
+; OPERATION_MODE                     ; ROM                                       ; Untyped        ;
+; WIDTH_A                            ; 8                                         ; Untyped        ;
+; WIDTHAD_A                          ; 8                                         ; Untyped        ;
+; NUMWORDS_A                         ; 256                                       ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                              ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                                      ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                                      ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                                      ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                                      ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                                      ; Untyped        ;
+; WIDTH_B                            ; 1                                         ; Untyped        ;
+; WIDTHAD_B                          ; 1                                         ; Untyped        ;
+; NUMWORDS_B                         ; 1                                         ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                                    ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                    ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                    ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1                                    ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                              ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                                    ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                                      ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                                      ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                                      ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                                      ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                                      ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                                      ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                         ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                         ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                                      ; Untyped        ;
+; BYTE_SIZE                          ; 8                                         ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                 ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                      ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                      ; Untyped        ;
+; INIT_FILE                          ; db/Processor.ram0_Memory_a0c6519c.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                    ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                         ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                    ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                    ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                    ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                           ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                           ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                                     ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone IV E                              ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_qs71                           ; Untyped        ;
++------------------------------------+-------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                 ;
++-------------------------------------------+--------------------------------------+
+; Name                                      ; Value                                ;
++-------------------------------------------+--------------------------------------+
+; Number of entity instances                ; 2                                    ;
+; Entity Instance                           ; DMemory:Dram|altsyncram:memory_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                            ;
+;     -- WIDTH_A                            ; 8                                    ;
+;     -- NUMWORDS_A                         ; 65536                                ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                         ;
+;     -- WIDTH_B                            ; 8                                    ;
+;     -- NUMWORDS_B                         ; 65536                                ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                            ;
+; Entity Instance                           ; Memory:Pram|altsyncram:memory_rtl_1  ;
+;     -- OPERATION_MODE                     ; ROM                                  ;
+;     -- WIDTH_A                            ; 8                                    ;
+;     -- NUMWORDS_A                         ; 256                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                         ;
+;     -- WIDTH_B                            ; 1                                    ;
+;     -- NUMWORDS_B                         ; 1                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                            ;
++-------------------------------------------+--------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Transmitter:tr"                                                                                                                                                                      ;
++----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                           ;
++----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; TxD_data ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (8 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BaudGen:baud"                                                                           ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; start    ; Input  ; Info     ; Explicitly unconnected                                                              ;
+; boudtick ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|Decoder:decoder"                                                                                                                                          ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; r1   ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (16 bits) it drives.  The 15 most-significant bit(s) in the port expression will be connected to GND. ;
+; r2   ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (16 bits) it drives.  The 15 most-significant bit(s) in the port expression will be connected to GND. ;
+; r3   ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (16 bits) it drives.  The 15 most-significant bit(s) in the port expression will be connected to GND. ;
+; r4   ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (16 bits) it drives.  The 15 most-significant bit(s) in the port expression will be connected to GND. ;
+; r5   ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (16 bits) it drives.  The 15 most-significant bit(s) in the port expression will be connected to GND. ;
+; ar   ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (16 bits) it drives.  The 15 most-significant bit(s) in the port expression will be connected to GND. ;
+; ac   ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (16 bits) it drives.  The 15 most-significant bit(s) in the port expression will be connected to GND. ;
+; ir   ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (16 bits) it drives.  The 15 most-significant bit(s) in the port expression will be connected to GND. ;
+; pc   ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (16 bits) it drives.  The 15 most-significant bit(s) in the port expression will be connected to GND. ;
++------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|SRegister:PC"                                                                                                                                                           ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LDsignal ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|SRegister:AC"                                                                                                                                                           ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LDsignal ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|Register:IR"                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LDsignal ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|Register:AR"                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LDsignal ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|Register:R5"                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LDsignal ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|Register:R4"                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LDsignal ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|Register:R3"                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LDsignal ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|Register:R2"                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LDsignal ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor:pro|Register:R1"                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; LDsignal ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (1 bits) it drives.  The 15 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Memory:Pram"                                                                                                                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; write      ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
+; write[-1]  ; Input ; Info     ; Stuck at GND                                                                                                                                                                        ;
+; Din        ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; Din[15..0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                        ;
++------------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 10.0 Build 218 06/27/2010 SJ Web Edition
+    Info: Processing started: Thu Jul 19 18:10:14 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Processor -c Processor
+Info: Found 1 design units, including 1 entities, in source file transmitter.v
+    Info: Found entity 1: Transmitter
+Info: Found 1 design units, including 1 entities, in source file testmp.v
+    Info: Found entity 1: testmp
+Info: Found 1 design units, including 1 entities, in source file sregister.v
+    Info: Found entity 1: SRegister
+Info: Found 1 design units, including 1 entities, in source file register.v
+    Info: Found entity 1: Register
+Info: Found 1 design units, including 1 entities, in source file receiver.v
+    Info: Found entity 1: Receiver
+Info: Found 1 design units, including 1 entities, in source file processor.v
+    Info: Found entity 1: processor
+Warning: Entity "Mux" obtained from "Mux.v" instead of from Quartus II megafunction library
+Info: Found 1 design units, including 1 entities, in source file mux.v
+    Info: Found entity 1: Mux
+Info: Found 1 design units, including 1 entities, in source file memory.v
+    Info: Found entity 1: Memory
+Info: Found 1 design units, including 1 entities, in source file dmemory.v
+    Info: Found entity 1: DMemory
+Info: Found 1 design units, including 1 entities, in source file decoder.v
+    Info: Found entity 1: Decoder
+Info: Found 1 design units, including 1 entities, in source file controlunit.v
+    Info: Found entity 1: ControlUnit
+Info: Found 1 design units, including 1 entities, in source file baudgen.v
+    Info: Found entity 1: BaudGen
+Info: Found 1 design units, including 1 entities, in source file alu.v
+    Info: Found entity 1: ALU
+Warning (10236): Verilog HDL Implicit Net warning at Transmitter.v(21): created implicit net for "boudgen"
+Warning (10236): Verilog HDL Implicit Net warning at testmp.v(38): created implicit net for "read"
+Warning (10236): Verilog HDL Implicit Net warning at testmp.v(38): created implicit net for "write"
+Info: Elaborating entity "testmp" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at testmp.v(54): truncated value with size 17 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at testmp.v(66): truncated value with size 32 to match size of target (17)
+Warning (10230): Verilog HDL assignment warning at testmp.v(88): truncated value with size 32 to match size of target (17)
+Warning (10034): Output port "s" at testmp.v(7) has no driver
+Info: Elaborating entity "DMemory" for hierarchy "DMemory:Dram"
+Info: Elaborating entity "Memory" for hierarchy "Memory:Pram"
+Info: Elaborating entity "processor" for hierarchy "processor:pro"
+Info: Elaborating entity "Register" for hierarchy "processor:pro|Register:R1"
+Info: Elaborating entity "SRegister" for hierarchy "processor:pro|SRegister:AC"
+Info: Elaborating entity "ALU" for hierarchy "processor:pro|ALU:alu"
+Warning (10230): Verilog HDL assignment warning at ALU.v(43): truncated value with size 32 to match size of target (16)
+Warning (10235): Verilog HDL Always Construct warning at ALU.v(44): variable "data" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at ALU.v(29): inferring latch(es) for variable "data", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "data[0]" at ALU.v(29)
+Info (10041): Inferred latch for "data[1]" at ALU.v(29)
+Info (10041): Inferred latch for "data[2]" at ALU.v(29)
+Info (10041): Inferred latch for "data[3]" at ALU.v(29)
+Info (10041): Inferred latch for "data[4]" at ALU.v(29)
+Info (10041): Inferred latch for "data[5]" at ALU.v(29)
+Info (10041): Inferred latch for "data[6]" at ALU.v(29)
+Info (10041): Inferred latch for "data[7]" at ALU.v(29)
+Info (10041): Inferred latch for "data[8]" at ALU.v(29)
+Info (10041): Inferred latch for "data[9]" at ALU.v(29)
+Info (10041): Inferred latch for "data[10]" at ALU.v(29)
+Info (10041): Inferred latch for "data[11]" at ALU.v(29)
+Info (10041): Inferred latch for "data[12]" at ALU.v(29)
+Info (10041): Inferred latch for "data[13]" at ALU.v(29)
+Info (10041): Inferred latch for "data[14]" at ALU.v(29)
+Info (10041): Inferred latch for "data[15]" at ALU.v(29)
+Info: Elaborating entity "Mux" for hierarchy "processor:pro|Mux:mux"
+Warning (10235): Verilog HDL Always Construct warning at Mux.v(27): variable "r4" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Info: Elaborating entity "Decoder" for hierarchy "processor:pro|Decoder:decoder"
+Warning (10230): Verilog HDL assignment warning at Decoder.v(18): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(19): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(20): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(21): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(22): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(23): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(24): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(25): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Decoder.v(26): truncated value with size 32 to match size of target (1)
+Info: Elaborating entity "ControlUnit" for hierarchy "processor:pro|ControlUnit:cu"
+Warning (10230): Verilog HDL assignment warning at ControlUnit.v(74): truncated value with size 16 to match size of target (8)
+Warning (10235): Verilog HDL Always Construct warning at ControlUnit.v(98): variable "z" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10270): Verilog HDL Case Statement warning at ControlUnit.v(93): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at ControlUnit.v(91): inferring latch(es) for variable "mins", which holds its previous value in one or more paths through the always construct
+Warning (10030): Net "musec.data_a" at ControlUnit.v(17) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "musec.waddr_a" at ControlUnit.v(17) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "musec.we_a" at ControlUnit.v(17) has no driver or initial value, using a default initial value '0'
+Info (10041): Inferred latch for "mins[0]" at ControlUnit.v(91)
+Info (10041): Inferred latch for "mins[1]" at ControlUnit.v(91)
+Info (10041): Inferred latch for "mins[2]" at ControlUnit.v(91)
+Info (10041): Inferred latch for "mins[3]" at ControlUnit.v(91)
+Info (10041): Inferred latch for "mins[4]" at ControlUnit.v(91)
+Info: Elaborating entity "BaudGen" for hierarchy "BaudGen:baud"
+Warning (10230): Verilog HDL assignment warning at BaudGen.v(31): truncated value with size 32 to match size of target (9)
+Info: Elaborating entity "Transmitter" for hierarchy "Transmitter:tr"
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(33): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(38): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(43): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(48): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(53): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(58): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(63): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(68): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(73): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Transmitter.v(78): truncated value with size 32 to match size of target (4)
+Info: Elaborating entity "Receiver" for hierarchy "Receiver:re"
+Warning (10230): Verilog HDL assignment warning at Receiver.v(23): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Receiver.v(27): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Receiver.v(31): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Receiver.v(35): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Receiver.v(39): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Receiver.v(43): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Receiver.v(47): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Receiver.v(51): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at Receiver.v(55): truncated value with size 32 to match size of target (4)
+Warning: Net is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[15]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[14]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[13]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[12]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[11]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[10]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[9]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[8]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[7]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[6]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[5]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[4]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[3]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[2]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr1[1]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[15]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[14]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[13]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[12]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[11]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[10]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[9]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[8]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[7]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[6]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[5]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[4]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[3]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[2]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr2[1]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[15]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[14]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[13]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[12]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[11]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[10]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[9]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[8]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[7]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[6]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[5]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[4]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[3]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[2]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr3[1]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[15]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[14]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[13]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[12]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[11]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[10]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[9]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[8]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[7]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[6]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[5]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[4]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[3]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[2]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr4[1]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[15]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[14]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[13]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[12]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[11]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[10]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[9]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[8]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[7]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[6]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[5]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[4]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[3]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[2]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lr5[1]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[15]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[14]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[13]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[12]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[11]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[10]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[9]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[8]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[7]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[6]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[5]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[4]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[3]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[2]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lar[1]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[15]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[14]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[13]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[12]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[11]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[10]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[9]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[8]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[7]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[6]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[5]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[4]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[3]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[2]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lac[1]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[15]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[14]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[13]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[12]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[11]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[10]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[9]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[8]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[7]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[6]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[5]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[4]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[3]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[2]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lir[1]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[15]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[14]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[13]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[12]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[11]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[10]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[9]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[8]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[7]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[6]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[5]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[4]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[3]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[2]" is missing source, defaulting to GND
+    Warning (12110): Net "processor:pro|lpc[1]" is missing source, defaulting to GND
+Warning: Clock multiplexers are found and protected
+    Warning: Found clock multiplexer Receiver:re|activeClock
+    Warning: Found clock multiplexer Transmitter:tr|transmeterClock
+Warning: Inferred dual-clock RAM node "DMemory:Dram|memory~0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
+Info: Found 1 instances of uninferred RAM logic
+    Info: RAM logic "processor:pro|ControlUnit:cu|musec" is uninferred due to inappropriate RAM size
+Critical Warning: Memory depth (32) in the design file differs from memory depth (24) in the Memory Initialization File "Processor.ram0_ControlUnit_3556cbc7.hdl.mif" -- setting initial value for remaining addresses to 0
+Info: Inferred 2 megafunctions from design logic
+    Info: Inferred altsyncram megafunction from the following design logic: "DMemory:Dram|memory~0" 
+        Info: Parameter OPERATION_MODE set to DUAL_PORT
+        Info: Parameter WIDTH_A set to 8
+        Info: Parameter WIDTHAD_A set to 16
+        Info: Parameter NUMWORDS_A set to 65536
+        Info: Parameter WIDTH_B set to 8
+        Info: Parameter WIDTHAD_B set to 16
+        Info: Parameter NUMWORDS_B set to 65536
+        Info: Parameter ADDRESS_ACLR_A set to NONE
+        Info: Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info: Parameter ADDRESS_ACLR_B set to NONE
+        Info: Parameter OUTDATA_ACLR_B set to NONE
+        Info: Parameter ADDRESS_REG_B set to CLOCK1
+        Info: Parameter INDATA_ACLR_A set to NONE
+        Info: Parameter WRCONTROL_ACLR_A set to NONE
+    Info: Inferred altsyncram megafunction from the following design logic: "Memory:Pram|memory~0" 
+        Info: Parameter OPERATION_MODE set to ROM
+        Info: Parameter WIDTH_A set to 8
+        Info: Parameter WIDTHAD_A set to 8
+        Info: Parameter NUMWORDS_A set to 256
+        Info: Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info: Parameter ADDRESS_ACLR_A set to NONE
+        Info: Parameter OUTDATA_ACLR_A set to NONE
+        Info: Parameter INDATA_ACLR_A set to NONE
+        Info: Parameter WRCONTROL_ACLR_A set to NONE
+        Info: Parameter INIT_FILE set to db/Processor.ram0_Memory_a0c6519c.hdl.mif
+Info: Elaborated megafunction instantiation "DMemory:Dram|altsyncram:memory_rtl_0"
+Info: Instantiated megafunction "DMemory:Dram|altsyncram:memory_rtl_0" with the following parameter:
+    Info: Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info: Parameter "WIDTH_A" = "8"
+    Info: Parameter "WIDTHAD_A" = "16"
+    Info: Parameter "NUMWORDS_A" = "65536"
+    Info: Parameter "WIDTH_B" = "8"
+    Info: Parameter "WIDTHAD_B" = "16"
+    Info: Parameter "NUMWORDS_B" = "65536"
+    Info: Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info: Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info: Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info: Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info: Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info: Parameter "INDATA_ACLR_A" = "NONE"
+    Info: Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_m3e1.tdf
+    Info: Found entity 1: altsyncram_m3e1
+Info: Found 1 design units, including 1 entities, in source file db/decode_rsa.tdf
+    Info: Found entity 1: decode_rsa
+Info: Found 1 design units, including 1 entities, in source file db/mux_bnb.tdf
+    Info: Found entity 1: mux_bnb
+Info: Elaborated megafunction instantiation "Memory:Pram|altsyncram:memory_rtl_1"
+Info: Instantiated megafunction "Memory:Pram|altsyncram:memory_rtl_1" with the following parameter:
+    Info: Parameter "OPERATION_MODE" = "ROM"
+    Info: Parameter "WIDTH_A" = "8"
+    Info: Parameter "WIDTHAD_A" = "8"
+    Info: Parameter "NUMWORDS_A" = "256"
+    Info: Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info: Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info: Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info: Parameter "INDATA_ACLR_A" = "NONE"
+    Info: Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info: Parameter "INIT_FILE" = "db/Processor.ram0_Memory_a0c6519c.hdl.mif"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_qs71.tdf
+    Info: Found entity 1: altsyncram_qs71
+Warning: Memory Initialization File or Hexadecimal (Intel-Format) File "Processor.ram0_Memory_a0c6519c.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning: Memory Initialization File or Hexadecimal (Intel-Format) File "Processor.ram0_Memory_a0c6519c.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning: 12 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: Latch processor:pro|ControlUnit:cu|mins[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|Register:IR|d[0]
+Warning: Latch processor:pro|ControlUnit:cu|mins[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|Register:IR|d[0]
+Warning: Latch processor:pro|ControlUnit:cu|mins[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|Register:IR|d[0]
+Warning: Latch processor:pro|ControlUnit:cu|mins[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|Register:IR|d[0]
+Warning: Latch processor:pro|ControlUnit:cu|mins[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|Register:IR|d[2]
+Warning: Latch processor:pro|ALU:alu|data[15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[2]
+Warning: Latch processor:pro|ALU:alu|data[14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[2]
+Warning: Latch processor:pro|ALU:alu|data[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Latch processor:pro|ALU:alu|data[12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal processor:pro|ControlUnit:cu|operation[0]
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "s[0]" is stuck at GND
+    Warning (13410): Pin "s[1]" is stuck at GND
+    Warning (13410): Pin "s[2]" is stuck at GND
+    Warning (13410): Pin "s[3]" is stuck at GND
+    Warning (13410): Pin "s[4]" is stuck at GND
+    Warning (13410): Pin "s[5]" is stuck at GND
+    Warning (13410): Pin "s[6]" is stuck at GND
+    Warning (13410): Pin "s[7]" is stuck at GND
+Info: Timing-Driven Synthesis is running
+Info: 16 registers lost all their fanouts during netlist optimizations. The first 16 are displayed below.
+    Info: Register "state.00" lost all its fanouts during netlist optimizations.
+    Info: Register "state.pros" lost all its fanouts during netlist optimizations.
+    Info: Register "state.trans" lost all its fanouts during netlist optimizations.
+    Info: Register "state.nope" lost all its fanouts during netlist optimizations.
+    Info: Register "staten~5" lost all its fanouts during netlist optimizations.
+    Info: Register "staten~6" lost all its fanouts during netlist optimizations.
+    Info: Register "state~2" lost all its fanouts during netlist optimizations.
+    Info: Register "state~3" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:pro|SRegister:PC|d[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:pro|SRegister:PC|d[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:pro|SRegister:PC|d[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:pro|SRegister:PC|d[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:pro|SRegister:PC|d[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:pro|SRegister:PC|d[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:pro|SRegister:PC|d[14]" lost all its fanouts during netlist optimizations.
+    Info: Register "processor:pro|SRegister:PC|d[15]" lost all its fanouts during netlist optimizations.
+Warning: Ignored assignments for entity "uart" -- entity does not exist in design
+    Warning: Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS REPLACE_CONFLICTING -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity uart -section_id Top was ignored
+    Warning: Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity uart -section_id Top was ignored
+Info: Generated suppressed messages file C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/output_files/Processor.map.smsg
+Info: Generating hard_block partition "hard_block:auto_generated_inst"
+Warning: Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "start"
+Info: Implemented 751 device resources after synthesis - the final resource count might be different
+    Info: Implemented 3 input pins
+    Info: Implemented 10 output pins
+    Info: Implemented 666 logic cells
+    Info: Implemented 72 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 259 warnings
+    Info: Peak virtual memory: 322 megabytes
+    Info: Processing ended: Thu Jul 19 18:10:21 2018
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/ASUS-PC/Desktop/Fpga project/quartus/quartus-complete/output_files/Processor.map.smsg.
+
+

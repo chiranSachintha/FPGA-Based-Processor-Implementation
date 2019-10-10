@@ -1,0 +1,14 @@
+
+State Machine - |testmp|staten
+Name staten.nope staten.trans staten.pros staten.00 
+staten.00 0 0 0 0 
+staten.pros 0 0 1 1 
+staten.trans 0 1 0 1 
+staten.nope 1 0 0 1 
+
+State Machine - |testmp|state
+Name state.nope state.trans state.pros state.00 
+state.00 0 0 0 0 
+state.pros 0 0 1 1 
+state.trans 0 1 0 1 
+state.nope 1 0 0 1 
